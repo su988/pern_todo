@@ -41,7 +41,7 @@ app.get('/todos/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const todo = await pool.query('SELECT * FROM todo WHERE todo_id = $1', [
-      id,
+      id
     ]);
 
     res.json(todo.rows[0]);
@@ -71,7 +71,7 @@ app.delete('/todos/:id', async (req, res) => {
   try {
     const { id } = req.params;
     const delTodo = await pool.query('DELETE FROM todo WHERE todo_id = $1', [
-      id,
+      id
     ]);
 
     res.json('Todo was deleted');
